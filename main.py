@@ -1,3 +1,4 @@
+# Importing the random module.
 import random
 import turtle as t
 t.colormode(255)
@@ -13,15 +14,22 @@ tim.forward(300)
 tim.setheading(0)
 numbers_of_dots = 100
 
-for dot_count in range(1, numbers_of_dots + 1):
-    tim.dot(20, random.choice(color_list))
-    tim.forward(50)
+def turtle_painting(numbers_of_dots):
+    """
+    This function creates a list of random dots and colors them
 
-    if dot_count % 10 == 0:
-        tim.setheading(90)
+    :param numbers_of_dots: The number of dots you want to draw
+    """
+    for dot_count in range(1, numbers_of_dots + 1):
+        tim.dot(20, random.choice(color_list))
         tim.forward(50)
-        tim.setheading(180)
-        tim.forward(500)
-        tim.setheading(0)
 
+        if dot_count % 10 == 0:
+            tim.setheading(90)
+            tim.forward(50)
+            tim.setheading(180)
+            tim.forward(500)
+            tim.setheading(0)
+
+turtle_painting(numbers_of_dots)
 screen.exitonclick()
